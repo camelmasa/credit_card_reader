@@ -13,4 +13,6 @@ Gem::Specification.new do |s|
 
   s.files = `git ls-files`.split($/)
   s.require_paths = ['lib']
+
+  s.add_runtime_dependency "luhn-check", "~> 0.0.5"
 end

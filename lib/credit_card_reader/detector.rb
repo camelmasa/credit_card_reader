@@ -17,7 +17,8 @@ module CreditCardReader
     }
 
     def detect(number)
-      Result.new(brand: detect_brand(number))
+      valid = ::Luhn.valid?(number.to_i) # luhn-check gem requires Fixnum type
+      Result.new(number: number, brand: detect_brand(number), valid: valid)
     end
 
     private
