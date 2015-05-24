@@ -2,14 +2,14 @@ require 'spec_helper'
 
 describe CreditCardReader::Detector do
   describe "#detect" do
-    subject { described_class.new.detect(number) }
+    let(:detector) { described_class.new }
 
     shared_examples "a detect result" do |brand, number|
       context "with #{brand}" do
         let(:number) { number }
 
-        it { should be_a CreditCardReader::Result }
-        it { expect(subject.brand).to eq brand }
+        it { expect(detector.detect(number)).to be_a CreditCardReader::Result }
+        it { expect(detector.detect(number).brand).to eq brand }
       end
     end
 

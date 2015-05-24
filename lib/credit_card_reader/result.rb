@@ -6,5 +6,9 @@ module CreditCardReader
       @brand = options[:brand]
       @valid = options[:valid]
     end
+
+    def valid?
+      valid
+    end
   end
 end
